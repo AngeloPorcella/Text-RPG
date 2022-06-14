@@ -32,7 +32,21 @@ class Item:
         print("You use the " + self.itemName + " on the " + useApp + ".")
         return itemName
 
+class UseApp:
 
-"""sword1 = Weapon("Long Sword", [5, 10])
-sword1.printWeaponStats()
-sword1.weaponDamage()"""
+    def __init__(self, useAppName: str, key: str):
+        self.useAppName = useAppName
+        self.key = key
+
+    def getUseKey(self) -> str:
+        thisKey = self.key
+        return thisKey
+
+    def getUseName(self) -> str:
+        return self.useAppName
+
+
+if __name__ == "__main__":
+    sword1 = Weapon("Sword", "Big Ass Sword", [69, 420])
+    sword1.printWeaponStats()
+    sword1.weaponDamage()

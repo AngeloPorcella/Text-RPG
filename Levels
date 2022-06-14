@@ -1,0 +1,22 @@
+Room #1:Cell
+You wake up in a jail cell with a rusted spoon[weapon], lumpy straw mattress[searchable], and a "bathroom" bucket[item] present on the floor around you.
+A guard[use application] sits sleeping on a stool within arms reach of the bars a pocket sits out of reach
+If you inspect the straw mattress you find a metal wire you fashion into a hook[item].
+    You can use the hook on the guard to take a key.
+    Using the key on the door opens and awakens the drunk guard.
+        Battle ensues
+        If you don't pick up the spoon he easily defeats you since you are unarmed(if you are unarmed you instantly die).
+        Defeating the guard advances you into the next room:
+If you pick up the bucket and throw it on the guard he wakes up screaming "I don't get paid enough for this!" and runs away
+    The key falls out of his pocket within arms reach.
+    You are able to unlock the door and exit without issue and advance to the next room.
+
+Room #2: Armory
+You enter a dimly lit room with a longsword[weapon], a deck of cards[item], a candle[item] sitting on a table.
+A cannon is aimed towards a barred window[use App].
+    Using the Candle on the cannon fires it through the window granting passage to the street below:
+Room #3: Wizard Tower
+An approaching group of guards forces you to take refuge inside a wizard's tower.
+
+
+Room #4:
