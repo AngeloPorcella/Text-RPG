@@ -48,5 +48,7 @@ class UseApp:
 
 if __name__ == "__main__":
     sword1 = Weapon("Sword", "Big Ass Sword", [69, 420])
+    item1 = Item("Book", "Look at all these fucking words!")
     sword1.printWeaponStats()
     sword1.weaponDamage()
+    item1.printItemDescription()

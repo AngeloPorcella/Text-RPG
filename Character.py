@@ -5,7 +5,8 @@ from Usables import UseApp
 
 class Character:
 
-    def __init__(self):
+    def __init__(self, charName: str):
+        self.charName = charName
         self.inventory = {}
 
     def pickUpWeapon(self, weaponID: str, name: str, damageRange: list):
@@ -51,8 +52,8 @@ class Character:
 
 
 if __name__ == "__main__":
-    puzzleAnswer = {"Wall": "Ladder"}
-    angelo = Character()
+    """puzzleAnswer = {"Wall": "Ladder"}
+    angelo = Character("Angelo")
     angelo.pickUpWeapon("Sword", "Big Sword", [50, 75])
     angelo.pickUpWeapon("Sword", "Big Sword", [50, 75])
     print(angelo.inventory)
@@ -60,4 +61,4 @@ if __name__ == "__main__":
     angelo.pickUpItem("Ladder", "Good for climbing over walls")
     print(angelo.inventory)
     wall = UseApp("Wall", "Ladder")
-    angelo.useItem("Sword", "Wall", puzzleAnswer)
+    angelo.useItem("Sword", "Wall", puzzleAnswer)"""

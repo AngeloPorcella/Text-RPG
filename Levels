@@ -1,3 +1,6 @@
+You have been sentenced to death for crimes you did not commit by a corrupt king who has a personal vendetta against you.
+Your mission is to survive and get your revenge.
+
 Room #1:Cell
 You wake up in a jail cell with a rusted spoon[weapon], lumpy straw mattress[searchable], and a "bathroom" bucket[item] present on the floor around you.
 A guard[use application] sits sleeping on a stool within arms reach of the bars a pocket sits out of reach
@@ -15,8 +18,14 @@ Room #2: Armory
 You enter a dimly lit room with a longsword[weapon], a deck of cards[item], a candle[item] sitting on a table.
 A cannon is aimed towards a barred window[use App].
     Using the Candle on the cannon fires it through the window granting passage to the street below:
+
 Room #3: Wizard Tower
-An approaching group of guards forces you to take refuge inside a wizard's tower.
+An approaching group of guards forces you to take refuge inside a nearby wizard's tower.
+You find yourself in an antechamber with a door with strange symbols and an animated skeleton with a rune in its hand is standing facing the corner.
+A glowing crystal floats within it's ribcage.
+    Using the metal hook on the skeleton causes it to fall apart allowing you to pick up the rune.
+    Using the rune on the door allows you to proceed to the next room.
+Any other action causes the skeleton to turn on you and you must fight it to obtain the rune
 
-
-Room #4:
+Room #4: Portal Room
+You en
