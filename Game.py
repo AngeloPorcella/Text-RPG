@@ -20,9 +20,10 @@ def repl():
 
 
 # Template for REPL
-def roomtemplate():
-    x = True
-    while x is True:
+def roomTemplate():
+    puzzleAnswer = {"fill": "this"}
+    openDoor = False
+    while openDoor is not True:
         action = input("What do you do?\n-> ")
         if action == "?":
             repl()
@@ -153,4 +154,3 @@ def room1():
 
 if __name__ == "__main__":
     room1()
-    print("wangz")
