@@ -13,7 +13,7 @@ class Character:
         if weaponID not in self.inventory:
             thisWeapon = Weapon(weaponID, name, damageRange)
             self.inventory[weaponID] = thisWeapon
-            print("You drop your newly useless weapon on the ground with a *thud* in favor of this glorious weapon.")
+            # print("You drop your newly useless weapon on the ground with a *thud* in favor of this glorious weapon.")
             print(name + " has been added to your inventory.")
         else:
             print("You look down to see your dropped weapon disintegrate into dust.")
@@ -31,24 +31,25 @@ class Character:
             thisItem = Item(name, description)
             self.inventory[name] = thisItem
             print("You pick up the " + name)
-            thisItem.printItemDescription()
 
     def useItem(self, itemName: str, useCase: str, puzzleAns: dict) -> bool:
         if itemName == "Sword":
             print("Your weapon glances pitifully off of the " + useCase + ". Unfortunately violence can't solve every "
                                                                           "problem.")
             return False
-        if itemName in self.inventory:
-            item = self.inventory[itemName]
-            myItem = item.useItem(useCase)
-            if useCase in puzzleAns:
-                myKey = puzzleAns[useCase]
-                if myItem == myKey:
-                    return True
+        elif itemName in self.inventory:
+            if itemName in puzzleAns[useCase]:
+                return True
             else:
-                print("Nothing Happens...")
+                return False
         else:
             print("You don't have a " + itemName + "!")
+            return False
+
+    def printInventory(self) -> None:
+        inv = self.inventory.values()
+        print(inv)
+        #TODO fix this pls...
 
 
 if __name__ == "__main__":

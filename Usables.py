@@ -27,10 +27,10 @@ class Item:
     def printItemDescription(self):
         print(self.itemName + ": " + self.description)
 
-    def useItem(self, useApp: str) -> str:
+"""    def useItem(self, useApp: str) -> str:
         itemName = self.itemName
         print("You use the " + self.itemName + " on the " + useApp + ".")
-        return itemName
+        return itemName"""
 
 class UseApp:
 
