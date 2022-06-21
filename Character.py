@@ -10,9 +10,9 @@ class Character:
         self.inventory = {}
 
     def pickUpWeapon(self, weaponID: str, name: str, damageRange: list):
-        if weaponID not in self.inventory:
+        if name not in self.inventory:
             thisWeapon = Weapon(weaponID, name, damageRange)
-            self.inventory[weaponID] = thisWeapon
+            self.inventory["Sword"] = thisWeapon
             # print("You drop your newly useless weapon on the ground with a *thud* in favor of this glorious weapon.")
             print(name + " has been added to your inventory.")
         else:

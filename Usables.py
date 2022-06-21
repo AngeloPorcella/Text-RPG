@@ -26,7 +26,7 @@ class Item:
 
     def printItemDescription(self):
         print(self.itemName + ": " + self.description)
-
+#so it lets me update this in GIT :))))
 """    def useItem(self, useApp: str) -> str:
         itemName = self.itemName
         print("You use the " + self.itemName + " on the " + useApp + ".")

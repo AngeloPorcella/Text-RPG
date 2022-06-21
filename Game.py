@@ -24,7 +24,7 @@ def repl():
 def combatHeal(playerHealth: int) -> int:
     """Increases health in a range selected randomly returns updated health"""
     if playerHealth < 100:
-        healAmt = random.randint(5, 15)
+        healAmt = random.randint(25, 50)
         playerHealth += healAmt
         if playerHealth > 100:
             playerHealth = 100
@@ -65,7 +65,7 @@ def combatLoop(enemyHP: int, playerHP: int, enemyName: str, enemyMinDmg: int, en
             print("The " + enemyName + " takes a swing at you.")
             print("You have taken " + str(damageTaken) + " damage. \nYour current health is " + str(hp))
             time.sleep(0.75)
-    print("You have slayed the enemy. Sometimes violence is the answer...")
+    print("You have slain the enemy. Sometimes violence is the answer...")
     return hp
 
 
@@ -153,7 +153,7 @@ def room1(playerHP: int) -> int:
                 print("Nothing Happens...")
                 continue
             if player.useItem(itemName, useCase, puzzleAnswer) is True:
-                print("You manage to fish the key out of the guard's pocket.\n"
+                print("\n\nYou manage to fish the key out of the guard's pocket.\n"
                       "It slides into the lock with ease.\n"
                       "As you turn the lock and open the door a loud squeak from the rusty hinges awakens the guard.\n"
                       "'Huh? We have an escapee!!'\n"
@@ -162,7 +162,7 @@ def room1(playerHP: int) -> int:
                 openDoor = True
                 # BREAK LOOP
             elif player.useItem(itemName, useCase, puzzleAnswer2) is True:
-                print("The guard lets out a bloodcurdling cry \n'what the hell?? I don't get paid enough for this!'\n"
+                print("\n\nThe guard lets out a bloodcurdling cry \n'what the hell?? I don't get paid enough for this!'\n"
                       "He stands up, and as he runs towards the door a key falls onto the floor within arms reach.\n"
                       "The key fits nicely into the cell door and you leave the room.")
                 openDoor = True
@@ -186,11 +186,96 @@ def room1(playerHP: int) -> int:
             else:
                 print("You can't pick that up!")
         elif action == "look":
-            print("You are within the confines of a rusty cell. A drunken, sleeping guard sits snoring outside of your "
+            print("\n\nYou are within the confines of a rusty cell. A drunken, sleeping guard sits snoring outside of your "
                   "cell.\nA lumpy bed lies in a corner of the small confined space, while a bucket sits "
                   "opposite. \n"
                   "A rusty spoon you use to eat whatever slop they decide to feed you rests near "
                   "the bed on the floor. Not exactly luxury living.")
+        elif action == "items":
+            readItem = input("Which item do you want to know about?\n-> ")
+            if readItem in player.inventory:
+                itemObj = player.inventory[readItem]
+                itemObj.printItemDescription()
+            else:
+                print("You don't have a(n) " + readItem + "!")
+        elif action == "exit":
+            raise SystemExit
+        else:
+            print("Please enter a valid command...")
+    return hp
+
+
+def room2(playerHP: int) -> int:
+    hp = playerHP
+    puzzleAnswer = {"cannon": ["candle"]}
+    print("You enter what appears to be a guard barrack.")
+    openDoor = False
+    while not openDoor:
+        action = input("What do you do?\n-> ")
+        if action == "?":
+            repl()
+        elif action == "inventory":
+            player.printInventory()
+        elif action == "inspect":
+            inspect = input("What would you like to inspect?\n-> ")
+            if inspect == "cannon":
+                print("A cannon curiously pointed directly at a wall...\nEven curiouser, the cannon appears to be "
+                      "loaded!")
+            elif inspect == "candle" or inspect == "candle stick":
+                print("A lit candle sits upon the table.")
+            elif inspect == "sword" or inspect == "long sword":
+                print("A shiny sword... Looks sharp!")
+            else:
+                print("Nothing of interest.")
+        elif action == "use":
+            itemName = input("What item would you like to use?\n-> ")
+            useCase = input("What would you like to use the item on?\n-> ")
+            if itemName == "long sword":
+                print("Nothing Happens...")
+                continue
+            if player.useItem(itemName, useCase, puzzleAnswer) is True:
+                print("Sparks fly from the fuze as it is lit with the candle. The cannon fires through the wall\n"
+                      "in an explosion of brick and wooden shrapnel. Coincidentally the cannon ball flies across\n"
+                      "a courtyard and directly into the big bad evil guy's lair.\n\n")
+                time.sleep(8)
+                print("****")
+                print("Meanwhile in the evil king's castle...")
+                print("****\n\n")
+                time.sleep(3)
+                print("The evil king lies in his evil royal bathtub thinking evil thoughts")
+                print("'Maybe i'll enslave some children today, that sounds fun' he muses to himself, in an evil "
+                      "tone...\n")
+                time.sleep(8)
+                print("suddenly...\n")
+                time.sleep(3)
+                print("The wall explodes in a violent crash and the evil king is instantly vaporized.")
+                print("You have saved the day!\n\n")
+                time.sleep(10)
+                print("What's this? The evil king's ghost rises from the fleshy pile of remains and flies out into\n"
+                      "the courtyard!")
+                print("'Myahh!' The ghost yells, evil in it's voice.")
+                time.sleep(5)
+                openDoor = True
+                # BREAK LOOP
+            else:
+                print("Nothing happens...")
+                continue
+        elif action == "pick up":
+            itPick = input("What do you want to pick up?\n-> ")
+            if itPick == "candle" or itPick == "candle stick":
+                itDescript = "A lit candle."
+                player.pickUpItem(itPick, itDescript)
+            elif itPick == "sword" or itPick == "long sword":
+                damage = [20, 30]
+                print("You pick up the " + itPick + ". This could come in handy...")
+                player.pickUpWeapon("Sword", "long sword", damage)
+            else:
+                print("You can't pick that up!")
+        elif action == "look":
+            print("You appear to be in some sort of guard barrack. There is a table in the center of the room with a "
+                  "long sword "
+                  "resting on top next to a lit candlestick,\nthe other guards here must have just left.\n"
+                  "A cannon sits nearby.")
         elif action == "items":
             readItem = input("Which item do you want to know about?\n-> ")
             if readItem in player.inventory:
