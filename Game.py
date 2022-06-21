@@ -1,6 +1,7 @@
 from Character import *
 import random
 import time
+from HangmanMiniGame import *
 
 player = Character("Hans")
 
@@ -14,7 +15,6 @@ def repl():
     print("pick up\t\t\tPick up Item")
     print("look\t\t\tObserves Environment")
     print("inventory\t\tGet list of inventory Items")
-    print("items\t\t\tGet Description of inventory Item")
     print("exit\t\t\tExit the Game")
     print("_______________________")
 
@@ -221,6 +221,22 @@ def room2(playerHP: int) -> int:
             if inspect == "cannon":
                 print("A cannon curiously pointed directly at a wall...\nEven curiouser, the cannon appears to be "
                       "loaded!")
+            elif inspect == "chalkboard" or inspect == "chalk board" or inspect == "board":
+                play = input("\n\nA set of lines appear on the board along with a crudely drawn hangman's platform.\n"
+                             "Would you like to play? (y/n)")
+                if play == "n":
+                    print("The board clears.\nThe words 'Whatever man, You do you...' write themselves before your "
+                          "eyes.")
+                    continue
+                if play == "y":
+                    print("Let's Play!")
+                    result = playHangMan(wordPick())
+                    if result == "winner":
+                        print("Congratulations! Here is your prize.")
+                        player.pickUpWeapon("Sword", "Lightsaber", [9998, 9999])
+                    elif result == "loser":
+                        print("'Bummer!'")
+                        print("The board wipes itself clean.")
             elif inspect == "candle" or inspect == "candle stick":
                 print("A lit candle sits upon the table.")
             elif inspect == "sword" or inspect == "long sword":
@@ -275,7 +291,7 @@ def room2(playerHP: int) -> int:
             print("You appear to be in some sort of guard barrack. There is a table in the center of the room with a "
                   "long sword "
                   "resting on top next to a lit candlestick,\nthe other guards here must have just left.\n"
-                  "A cannon sits nearby.")
+                  "A cannon sits nearby.\nA magical chalkboard hangs on a wall.")
         elif action == "items":
             readItem = input("Which item do you want to know about?\n-> ")
             if readItem in player.inventory:

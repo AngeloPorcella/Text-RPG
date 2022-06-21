@@ -1,6 +1,6 @@
 from Usables import Weapon
 from Usables import Item
-from Usables import UseApp
+
 
 
 class Character:
@@ -47,9 +47,11 @@ class Character:
             return False
 
     def printInventory(self) -> None:
-        inv = self.inventory.values()
-        print(inv)
-        #TODO fix this pls...
+        inv = self.inventory.keys()
+        for item in inv:
+            print(item)
+
+        # A spoon is a sword now!
 
 
 if __name__ == "__main__":
